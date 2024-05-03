@@ -1,0 +1,22 @@
+name: ${artifactId}
+main: org.xjcraft.${artifactId}
+version: ${project.version}
+author: reezhu
+#load: STARTUP
+api: ["1.0.0"]
+depend: [SimpleSpigot]
+softdepend: []
+description:
+
+commands:
+#    example:
+#        description: example
+#        usage: use /example help
+#        permission: example.command
+#        permission-message: You don't have <permission>
+#        aliases: []
+
+permissions:
+#    example.command:
+#        description: Allow user to use example command
+#        default: op

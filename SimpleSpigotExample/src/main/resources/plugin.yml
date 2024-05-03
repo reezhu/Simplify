@@ -1,0 +1,21 @@
+name: SimpleSpigotExample
+version: '${project.version}'
+main: org.xjcraft.example.SimpleSpigotExample
+api-version: '1.20'
+depend: [SimpleSpigot]
+softdepend: []
+author: reezhu
+description: this is an example
+
+commands:
+    example:
+        description: example
+        usage: use /example help
+        permission: example.command
+        permission-message: You don't have <permission>
+        aliases: []
+
+permissions:
+    example.command:
+        description: Allow user to use example command
+        default: op

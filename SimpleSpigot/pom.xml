@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.xjcraft</groupId>
+        <artifactId>Simplify</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <artifactId>SimpleSpigot</artifactId>
+    <version>${project.version}</version>
+    <packaging>jar</packaging>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>true</createDependencyReducedPom>
+<!--                            <relocations>-->
+<!--                                &lt;!&ndash; 重定位依赖 &ndash;&gt;-->
+<!--                                <relocation>-->
+<!--                                    <pattern>org.apache</pattern> &lt;!&ndash; 原始依赖的根包路径 &ndash;&gt;-->
+<!--                                    <shadedPattern>3rd.org.apache</shadedPattern> &lt;!&ndash; 你希望将其重定位到的新路径 &ndash;&gt;-->
+<!--                                </relocation>-->
+<!--                                <relocation>-->
+<!--                                    <pattern>com.google</pattern> &lt;!&ndash; 原始依赖的根包路径 &ndash;&gt;-->
+<!--                                    <shadedPattern>3rd.com.google</shadedPattern> &lt;!&ndash; 你希望将其重定位到的新路径 &ndash;&gt;-->
+<!--                                </relocation>-->
+<!--                                <relocation>-->
+<!--                                    <pattern>org.reflections</pattern> &lt;!&ndash; 原始依赖的根包路径 &ndash;&gt;-->
+<!--                                    <shadedPattern>3rd.org.reflections</shadedPattern> &lt;!&ndash; 你希望将其重定位到的新路径 &ndash;&gt;-->
+<!--                                </relocation>-->
+<!--                            </relocations>-->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.xjcraft</groupId>
+            <artifactId>SimpleCore</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--Spigot API-->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--Bukkit API-->
+<!--        <dependency>-->
+<!--            <groupId>org.bukkit</groupId>-->
+<!--            <artifactId>bukkit</artifactId>-->
+<!--            <version>1.20.2-R0.1-SNAPSHOT</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <!--soft depend plugins-->
+        <dependency>
+            <groupId>com.github.ConnorLinfoot</groupId>
+            <artifactId>TitleAPI</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>
